@@ -1,0 +1,27 @@
+<!-- The edit loaner view -->
+<section data-ng-controller="LoanersController" data-ng-init="findOne()">
+    <h1>Edit Loaner</h1>
+    <!-- The edited loaner form -->
+    <form data-ng-submit="update()" novalidate>
+        <div>
+            <label for="model">Model</label>
+            <div>
+                <input type="text" data-ng-model="loaner.model" id="model" placeholder="Model" required>
+            </div>
+        </div>
+        <div>
+            <label for="content">Content</label>
+            <div>
+                <textarea data-ng-model="loaner.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Update">
+        </div>
+        <!-- The error message element -->
+        <div data-ng-show="error">
+            <strong data-ng-bind="error"></strong>
+        </div>
+    </form>
+    </div>
+</section>

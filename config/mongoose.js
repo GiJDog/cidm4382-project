@@ -3,7 +3,7 @@
 
 // Load the module dependencies
 var config = require('./config'),
-    mongoose = require('/mongoose');
+    mongoose = require('mongoose');
 
 // Define the Mongoose configuration method
 module.exports = function() {

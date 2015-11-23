@@ -5,7 +5,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-// Define a new 'ArticleSchema'
+// Define a new 'LoanerSchema'
 var LoanerSchema = new Schema({
     created: {
         type: Date,

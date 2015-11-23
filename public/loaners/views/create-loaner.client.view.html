@@ -1,0 +1,26 @@
+<!-- The create loaner view -->
+<section data-ng-controller="LoanersController">
+    <h1>New Loaner</h1>
+    <!-- The new loaner form -->
+    <form data-ng-submit="create()" novalidate>
+        <div>
+            <label for="model">Model</label>
+            <div>
+                <input type="text" data-ng-model="model" id="model" placeholder="Model" required>
+            </div>
+        </div>
+        <div>
+            <label for="content">Content</label>
+            <div>
+                <textarea data-ng-model="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+            </div>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+        <!-- The error message element -->
+        <div data-ng-show="error">
+            <strong data-ng-bind="error"></strong>
+        </div>
+    </form>
+</section>

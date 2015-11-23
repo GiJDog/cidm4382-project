@@ -1,0 +1,19 @@
+<!-- The list loaners view -->
+<section data-ng-controller="LoanersController" data-ng-init="find()">
+    <h1>Loaners</h1>
+    <ul>
+        <!-- The list of loaner -->
+        <li data-ng-repeat="loaner in loaners">
+            <a data-ng-href="#!/loaners/{{loaner._id}}" data-ng-bind="loaner.model"></a>
+            <br>
+            <small data-ng-bind="loaner.created | date:'medium'"></small>
+            <small>/</small>
+            <small data-ng-bind="loaner.creator.fullName"></small>
+            <p data-ng-bind="loaner.content"></p>
+        </li>
+    </ul>
+    <!-- If there are no loaners in the list, suggest the user's create a new loaner -->
+    <div data-ng-hide="!loaners || loaners.length">
+        No loaners yet, why don't you <a href="/#!/loaners/create">create one</a>?
+    </div>
+</section>
