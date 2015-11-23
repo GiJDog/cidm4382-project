@@ -17,7 +17,7 @@ angular.module('loaners').controller('LoanersController', ['$scope', '$routePara
             // Use the article '$save' method to send an appropriate POST request
             loaner.$save(function(response) {
                 // If an article was created successfully, redirect the user to the article's page 
-                $location.path('loaners/' + response._id);
+                $location.path('/api/loaners/' + response._id);
             }, function(errorResponse) {
                 // Otherwise, present the user with the error message
                 $scope.error = errorResponse.data.message;
@@ -43,7 +43,7 @@ angular.module('loaners').controller('LoanersController', ['$scope', '$routePara
             // Use the article '$update' method to send an appropriate PUT request
             $scope.loaner.$update(function() {
                 // If an article was updated successfully, redirect the user to the article's page 
-                $location.path('loaners/' + $scope.loaner._id);
+                $location.path('/api/loaners/' + $scope.loaner._id);
             }, function(errorResponse) {
                 // Otherwise, present the user with the error message
                 $scope.error = errorResponse.data.message;

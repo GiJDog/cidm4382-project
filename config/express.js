@@ -46,7 +46,8 @@ module.exports = function() {
     require('../app/routes/users.server.routes.js')(app);
     require('../app/routes/loaners.server.routes.js')(app);
 
-    app.use(express.static('./public'));
+    app.use('/node_modules', express.static('/home/ubuntu/workspace/node_modules'));
+    app.use('/public', express.static('/home/ubuntu/workspace/public'));
 
     return app;
 };

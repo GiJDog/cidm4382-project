@@ -5,7 +5,7 @@
 angular.module('loaners').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-        when('/loaners', {
+        when('/', {
             templateUrl: 'loaners/views/list-loaners.client.view.html'
         }).
         when('/loaners/create', {
