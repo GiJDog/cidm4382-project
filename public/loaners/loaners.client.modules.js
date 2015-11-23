@@ -1,4 +1,4 @@
-// Invoke 'strict' JavaScript mode
+// Invoke 'strict' JavaScript mode.
 'use strict';
 
 // Create the 'articles' module
