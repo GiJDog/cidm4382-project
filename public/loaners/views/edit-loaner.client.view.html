@@ -1,5 +1,6 @@
 <section data-ng-controller="LoanersController" data-ng-init="findOne()">
-  <h1>Edit Loaner</h1>
+  <div class="text-center">
+  <h1>Edit Check-Out</h1>
   <form data-ng-submit="update()" novalidate>
     <div>
       <label for="model">Model</label>
@@ -7,17 +8,19 @@
         <input type="text" data-ng-model="loaner.model" id="model" placeholder="Model" required>
       </div>
     </div>
-    <div>
+    <div><br>
       <label for="modelType">Model Type</label>
       <div>
-        <textarea data-ng-model="loaner.modelType" id="modelType" cols="30" rows="10" placeholder="Model Type"></textarea>
+        <input type="text" data-ng-model="loaner.modelType" id="modelType" placeholder="Model Type" required>
       </div>
     </div>
-    <div>
-      <input type="submit" value="Update">
-    </div>
+    <div><br>
+      <input type="submit" class="btn btn-info" value="Update">
+    </div><br>
+    <a href="#!/loaners/{{loaner._id}}" class="btn btn-info" role="button">Back</a>
     <div data-ng-show="error">
       <strong data-ng-bind="error"></strong>
     </div>
   </form>
+  </div>
 </section>

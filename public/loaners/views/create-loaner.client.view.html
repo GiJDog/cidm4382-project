@@ -1,6 +1,7 @@
 <section data-ng-controller="LoanersController">
-  <a href="/#!/">Home</a>
-<h1>New Loaner</h1>
+  <div class="text-center">
+  <a href="/#!/" class="btn btn-info" role="button">Home</a>
+<h1>New Check-Out</h1>
   <form data-ng-submit="create()" novalidate>
     <div>
       <label for="model">Model</label>
@@ -8,17 +9,18 @@
         <input type="text" data-ng-model="model" id="model" placeholder="Model" required>
       </div>
     </div>
-    <div>
+    <div><br>
       <label for="modelType">Model Type</label>
       <div>
-        <textarea data-ng-model="modelType" id="modelType" cols="30" rows="10" placeholder="Model Type"></textarea>
+        <input type ="text" data-ng-model="modelType" id="modelType" placeholder="Model Type" required>
       </div>
     </div>
-    <div>
+    <div><br>
       <input type="submit">
     </div>
     <div data-ng-show="error">
       <strong data-ng-bind="error"></strong>
     </div>
   </form>
+  </div>
 </section>

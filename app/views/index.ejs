@@ -5,6 +5,10 @@
 	<title><%= title %></title>
 </head>
 <body>
+	<div class="jumbotron text-center">
+	<H1>Equipment Check-Out</H1>
+	</div>
+	
 	<!-- Render AngularJS views  -->
 	<section ng-view></section>
 
@@ -12,6 +16,9 @@
 	<script type="text/javascript">
 		window.user = <%- user || 'null' %>;
 	</script>
+	
+
+    <link rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Load local libraries -->
 	<script type="text/javascript" src="/public/lib/angular/angular.js"></script>
