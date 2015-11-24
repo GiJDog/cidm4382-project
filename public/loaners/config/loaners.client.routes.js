@@ -1,11 +1,7 @@
-// Invoke 'strict' JavaScript mode
-'use strict';
-
-// Configure the 'loaners' module routes
 angular.module('loaners').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-        when('/', {
+        when('/loaners', {
             templateUrl: 'loaners/views/list-loaners.client.view.html'
         }).
         when('/loaners/create', {
@@ -18,4 +14,4 @@ angular.module('loaners').config(['$routeProvider',
             templateUrl: 'loaners/views/edit-loaner.client.view.html'
         });
     }
-]); 
+]);

@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:ng="http://angularjs.org">
 <head>
-    <!-- Use the 'title' property to render a page title  -->
-    <title><%= title %></title>
+	<!-- Use the 'title' property to render a page title  -->
+	<title><%= title %></title>
 </head>
 <body>
-    <!-- Render AngularJS views  -->
-    <section ng-view></section>
+	<!-- Render AngularJS views  -->
+	<section ng-view></section>
 
-    <!-- Render the user object -->
-    <script type="text/javascript">
-        window.user = <%- user || 'null' %>;
-    </script>
+	<!-- Render the user object -->
+	<script type="text/javascript">
+		window.user = <%- user || 'null' %>;
+	</script>
 
     <!-- Load local libraries -->
-    <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
-    <script type="text/javascript" src="/node_modules/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="/node_modules/angular-resource/angular-resource.js"></script>
+	<script type="text/javascript" src="/public/lib/angular/angular.js"></script>
+	<script type="text/javascript" src="/public/lib/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="/public/lib/angular-resource/angular-resource.js"></script>
 
     <!-- Load the articles module -->
     <script type="text/javascript" src="/public/loaners/loaners.client.module.js"></script>
     <script type="text/javascript" src="/public/loaners/controller/loaners.client.controller.js"></script>
     <script type="text/javascript" src="/public/loaners/services/loaners.client.service.js"></script>
     <script type="text/javascript" src="/public/loaners/config/loaners.client.routes.js"></script>
+
+	<!-- Load the example module -->
+	<script type="text/javascript" src="/public/example/example.client.module.js"></script>
+	<script type="text/javascript" src="/public/example/controllers/example.client.controller.js"></script>
+	<script type="text/javascript" src="/public/example/config/example.client.routes.js"></script>
+
 
     <!-- Load the users module -->
     <script type="text/javascript" src="/public/users/users.client.module.js"></script>
