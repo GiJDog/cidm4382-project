@@ -1,14 +1,18 @@
 <section data-ng-controller="LoanersController" data-ng-init="findOne()">
+  <a href="/#!/">Home</a>
   <h1 data-ng-bind="loaner.model"></h1>
-  <div data-ng-show="authentication.user._id == loaner.creator._id">
-    <a href="/#!/loaners/{{loaner._id}}/edit">edit</a>
-    <a href="#" data-ng-click="delete();">delete</a>
-  </div>
+  <p data-ng-bind="loaner.modelType"></p>
   <small>
-    <em>Posted on</em>
+    <em>Issued on</em>
     <em data-ng-bind="loaner.created | date:'mediumDate'"></em>
-    <em>by</em>
+    <em>to</em>
     <em data-ng-bind="loaner.creator.fullName"></em>
   </small>
-  <p data-ng-bind="loaner.modelType"></p>
+  <br><br>
+  <div data-ng-show="authentication.user._id == loaner.creator._id">
+    <a href="/#!/loaners/{{loaner._id}}/edit">Edit</a>
+    <a href="#" data-ng-click="delete();">Delete</a>
+    <a href="/#!/loaners">Back</a>
+  </div>
+  <br>
 </section>
