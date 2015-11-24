@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
 <html>
 <head>
 	<!-- Use the 'title' property to render a page title  -->
@@ -11,23 +12,44 @@
 	<% } %>
 
 	<!-- Render the signin form  -->
-	<form action="/signin" method="post">
-		<div>
-			<label>Username:</label>
-			<input type="text" name="username" />
+	<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  		<div class="modal-dialog">
+		<div class="modal-content">
+      		<div class="modal-header">
+        		<h1 class="text-center">Login</h1>
+    		</div>
+      	<div class="modal-body">
+			<form action="/signin" method="post" class="form col-md-12 center-block">
+				<div class="form-group">
+					<input type="text" class="form-control input-lg" name="username" placeholder="Username"/>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control input-lg" name="password" placeholder="Password"/>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-primary btn-lg btn-block" value="Sign In" />
+				</div>
+				
+					<!-- Render the OAuth authentication links  -->
+				<div class="text-center">
+					<a href="/oauth/facebook" class="btn btn-info" role="button">Sign in with Facebook</a>
+					<a href="/oauth/twitter" class="btn btn-info" role="button">Sign in with Twitter</a>
+					<a href="/oauth/google" class="btn btn-info" role="button">Sign in with Google</a>
+				</div>
+			</form>
 		</div>
-		<div>
-			<label>Password	:</label>
-			<input type="password" name="password" />
-		</div>
-		<div>
-			<input type="submit" value="Sign In" />
-		</div>
-	</form>
+		<div class="modal-footer">
+          <div class="col-md-12">
+          <a href="/#!/" class="btn btn-info" role="button">Cancel</a>
+		  </div>	
+     	</div>
+    </div>
+  	</div>
+</div>
 
-	<!-- Render the OAuth authentication links  -->
-	<a href="/oauth/facebook">Sign in with Facebook</a>
-	<a href="/oauth/twitter">Sign in with Twitter</a>
-	<a href="/oauth/google">Sign in with Google</a>
+	
+	
+	<script type="text/javascript" src="/public/application.js"></script>
+	 <link rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.min.css">
 </body>
 </html>
