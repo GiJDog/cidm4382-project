@@ -17,9 +17,9 @@
       <br><br><br>
     </div>
   
+  
  <div data-ng-hide="!loaners || loaners.length">
     <medium>No items checked-out.</medium><br> <a href="/#!/loaners/create" class="btn btn-primary btn-lg" role="button">Check-Out Item Here</a>
   </div>
-  
   </div>
 </section>
