@@ -2,7 +2,7 @@
 'use strict';
 
 // Load the module dependencies
-var Admin = require('mongoose').model('Admin'),
+var User = require('mongoose').model('User'),
 	passport = require('passport');
 
 // Create a new error handling controller method
@@ -16,7 +16,7 @@ var getErrorMessage = function(err) {
 			// If a unique index error occurs set the message error
 			case 11000:
 			case 11001:
-				message = 'Adminname already exists';
+				message = 'Admin already exists';
 				break;
 			// If a general error occurs set the message error
 			default:
@@ -35,8 +35,8 @@ var getErrorMessage = function(err) {
 
 // Create a new controller method that renders the signin page
 exports.renderSignin = function(req, res, next) {
-	// If admin is not connected render the signin page, otherwise redirect the admin back to the main application page
-	if (!req.admin) {
+	// If user is not connected render the signin page, otherwise redirect the user back to the main application page
+	if (!req.user) {
 		// Use the 'response' object to render the signin page
 		res.render('adminssignin', {
 			// Set the page title variable
@@ -51,8 +51,8 @@ exports.renderSignin = function(req, res, next) {
 
 // Create a new controller method that renders the signup page
 exports.renderSignup = function(req, res, next) {
-	// If admin is not connected render the signup page, otherwise redirect the admin back to the main application page
-	if (!req.admin) {
+	// If user is not connected render the signup page, otherwise redirect the user back to the main application page
+	if (!req.user) {
 		// Use the 'response' object to render the signup page
 		res.render('adminssignup', {
 			// Set the page title variable
@@ -65,19 +65,19 @@ exports.renderSignup = function(req, res, next) {
 	}
 };
 
-// Create a new controller method that creates new 'regular' admins
+// Create a new controller method that creates new 'regular' users
 exports.signup = function(req, res, next) {
-	// If admin is not connected, create and login a new admin, otherwise redirect the admin back to the main application page
-	if (!req.admin) {
-		// Create a new 'Admin' model instance
-		var admin = new Admin(req.body);
+	// If user is not connected, create and login a new user, otherwise redirect the user back to the main application page
+	if (!req.user) {
+		// Create a new 'User' model instance
+		var user = new User(req.body);
 		var message = null;
 
-		// Set the admin provider property
-		admin.provider = 'local';
+		// Set the user provider property
+		user.provider = 'local';
 
-		// Try saving the new admin document
-		admin.save(function(err) {
+		// Try saving the new user document
+		user.save(function(err) {
 			// If an error occurs, use flash messages to report the error
 			if (err) {
 				// Use the error handling method to get the error message
@@ -86,16 +86,16 @@ exports.signup = function(req, res, next) {
 				// Set the flash messages
 				req.flash('error', message);
 
-				// Redirect the admin back to the signup page
+				// Redirect the user back to the signup page
 				return res.redirect('/adminssignup');
 			}
 
-			// If the admin was created successfully use the Passport 'login' method to login
-			req.login(admin, function(err) {
+			// If the user was created successfully use the Passport 'login' method to login
+			req.login(user, function(err) {
 				// If a login error occurs move to the next middleware
 				if (err) return next(err);
 
-				// Redirect the admin back to the main application page
+				// Redirect the user back to the main application page
 				return res.redirect('/');
 			});
 		});
@@ -104,39 +104,39 @@ exports.signup = function(req, res, next) {
 	}
 };
 
-// Create a new controller method that creates new 'OAuth' admins
-exports.saveOAuthAdminProfile = function(req, profile, done) {
-	// Try finding a admin document that was registered using the current OAuth provider
-	Admin.findOne({
+// Create a new controller method that creates new 'OAuth' users
+exports.saveOAuthUserProfile = function(req, profile, done) {
+	// Try finding a user document that was registered using the current OAuth provider
+	User.findOne({
 		provider: profile.provider,
 		providerId: profile.providerId
-	}, function(err, admin) {
+	}, function(err, user) {
 		// If an error occurs continue to the next middleware
 		if (err) {
 			return done(err);
 		} else {
-			// If a admin could not be found, create a new admin, otherwise, continue to the next middleware
-			if (!admin) {
-				// Set a possible base adminname
-				var possibleAdminname = profile.adminname || ((profile.email) ? profile.email.split('@')[0] : '');
+			// If a user could not be found, create a new user, otherwise, continue to the next middleware
+			if (!user) {
+				// Set a possible base username
+				var possibleUsername = profile.username || ((profile.email) ? profile.email.split('@')[0] : '');
 
-				// Find a unique available adminname
-				Admin.findUniqueAdminname(possibleAdminname, null, function(availableAdminname) {
-					// Set the available admin name 
-					profile.adminname = availableAdminname;
+				// Find a unique available username
+				User.findUniqueUsername(possibleUsername, null, function(availableUsername) {
+					// Set the available user name 
+					profile.username = availableUsername;
 					
-					// Create the admin
-					admin = new Admin(profile);
+					// Create the user
+					user = new User(profile);
 
-					// Try saving the new admin document
-					admin.save(function(err) {
+					// Try saving the new user document
+					user.save(function(err) {
 						// Continue to the next middleware
-						return done(err, admin);
+						return done(err, user);
 					});
 				});
 			} else {
 				// Continue to the next middleware
-				return done(err, admin);
+				return done(err, user);
 			}
 		}
 	});
@@ -147,11 +147,11 @@ exports.signout = function(req, res) {
 	// Use the Passport 'logout' method to logout
 	req.logout();
 
-	// Redirect the admin back to the main application page
+	// Redirect the user back to the main application page
 	res.redirect('/');
 };
 
-//make sure that he admin is authenticated
+//make sure that he user is authenticated
 exports.requiresLogin = function(req, res, next) {
   if (!req.isAuthenticated()) {
     return res.status(401).send({
