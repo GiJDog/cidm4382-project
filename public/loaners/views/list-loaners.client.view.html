@@ -6,7 +6,7 @@
   <br>
 
     <div data-ng-repeat="loaner in loaners">
-      <a data-ng-href="#!/loaners/{{loaner._id}}" data-ng-bind="loaner.model" class="bg-info"></a>
+      <a data-ng-href="#!/loaners/{{loaner.creator.fullName}}" data-ng-bind="loaner.model" class="bg-info"></a>
       <small> - </small>
       <small data-ng-bind="loaner.modelType"></small>
       <br>

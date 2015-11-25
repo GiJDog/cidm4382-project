@@ -1,9 +1,17 @@
 <section ng-controller="ExampleController">
   <div class="text-center">
   <div data-ng-show="!authentication.user">
-    <a href="/signup" class="btn btn-info" role="button">Signup</a>
+    <a href="/signup" class="btn btn-info" role="button">Register</a>
     <a href="/signin" class="btn btn-info" role="button">Signin</a>
+  </div><br>
+  
+  <!--
+  <div data-ng-show="!authentication.admin">
+    <a href="/adminssignup" class="btn btn-info" role="button">Register as Admin</a>
+    <a href="/adminssignin" class="btn btn-info" role="button">Admin Signin</a>
   </div>
+  -->
+  
   <div data-ng-show="authentication.user">
     <h1>Hello <span data-ng-bind="authentication.user.fullName"></span></h1>
     <br>
@@ -12,5 +20,17 @@
     <br><br><br><br><br>
     <a href="/signout" class="btn btn-info" role="button">Signout</a>
   </div>
+  
+  <!--
+  <div data-ng-show="authentication.admin">
+    <h1>Hello <span data-ng-bind="authentication.admin.fullName"></span>, You are signed in as an Admin.</h1>
+    <br>
+    <a href="/#!/loaners" class="btn btn-info" role="button">Checked-Out List</a>
+    <a href="/#!/loaners/create" class="btn btn-info" role="button">Check-Out Item</a>
+    <br><br><br><br><br>
+    <a href="/signout" class="btn btn-info" role="button">Signout</a>
+  </div>
+  -->
+  
   </div>
 </section>

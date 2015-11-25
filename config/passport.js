@@ -14,7 +14,9 @@ module.exports = function() {
 	passport.serializeUser(function(user, done) {
 		done(null, user.id);
 	});
-
+	
+	
+	
 	// Use Passport's 'deserializeUser' method to load the user document
 	passport.deserializeUser(function(id, done) {
 		User.findOne({

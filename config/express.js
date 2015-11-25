@@ -52,6 +52,7 @@ module.exports = function() {
     require('../app/routes/index.server.routes.js')(app);
     require('../app/routes/users.server.routes.js')(app);
     require('../app/routes/loaners.server.routes.js')(app);
+    require('../app/routes/admins.server.routes.js')(app);
 
     app.use('/node_modules', express.static('/home/ubuntu/workspace/node_modules'));
     app.use('/client', express.static('/home/ubuntu/workspace/client'));
