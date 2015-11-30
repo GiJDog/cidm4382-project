@@ -1,26 +1,34 @@
 <section data-ng-controller="LoanersController" data-ng-init="findOne()">
   <div class="text-center">
-  <h1>Edit Check-Out</h1>
-  <form data-ng-submit="update()" novalidate>
-    <div>
-      <label for="model">Model</label>
-      <div>
-        <input type="text" data-ng-model="loaner.model" id="model" placeholder="Model" required>
-      </div>
-    </div>
-    <div><br>
-      <label for="modelType">Model Type</label>
-      <div>
-        <input type="text" data-ng-model="loaner.modelType" id="modelType" placeholder="Model Type" required>
-      </div>
-    </div>
-    <div><br>
-      <input type="submit" class="btn btn-primary btn-lg" value="Update">
-    </div><br>
-    <a href="#!/loaners/{{loaner._id}}" class="btn btn-primary btn-lg" role="button">Back</a>
-    <div data-ng-show="error">
-      <strong data-ng-bind="error"></strong>
-    </div>
-  </form>
-  </div>
+  <div id="loginModal2" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  		<div class="modal-dialog">
+		  <div class="modal-content">
+      		<div class="modal-header bg-primary">  
+            <h1>Edit Check-Out</h1>
+          </div>
+          <div class="modal-body">
+              <form data-ng-submit="update()" novalidate class="form col-md-12 center-block">
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg" data-ng-model="loaner.model" id="model" placeholder="Model" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control input-lg" data-ng-model="loaner.modelType" id="modelType" placeholder="Model Type" required>
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-lg btn-block" value="Update">
+                </div>
+                <div class="text-center">
+                  <a href="#!/loaners/{{loaner._id}}" class="btn btn-info btn-md" role="button">Cancel</a>
+                <div data-ng-show="error">
+                  <strong data-ng-bind="error"></strong>
+                </div>
+              </form>
+              </div>
+              <div class="modal-footer">
+			        	<div class="col-md-12">
+					    </div>	
+		     	    </div>
+    	    </div>
+  		    </div>
+	  </div>
 </section>

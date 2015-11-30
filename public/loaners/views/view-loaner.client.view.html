@@ -9,6 +9,8 @@
     <em data-ng-bind="loaner.created | date:'mediumDate'"></em>
     <em>to</em>
     <em data-ng-bind="loaner.creator.fullName"></em>
+    <em>at</em>
+    <em data-ng-bind="loaner.created | date:'shortTime'"></em>
   </small>
   <br><br>
   <div data-ng-show="authentication.user._id == loaner.creator._id">

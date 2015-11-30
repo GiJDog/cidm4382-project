@@ -1,22 +1,16 @@
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+## This is an "Epuipment Check-Out" application for a small business.
 
+#### Application Features:
 
-Welcome to your Node.js project on Cloud9 IDE!
+1) A user is able to register and create an account.
 
-This chat example showcases how to use `socket.io` with a static `express` server.
+2) The application is able to check if the user exists.
 
-## Running the server
+3) The user is then able to sign into their account to proceed with actions desired to updated account.
 
-1) Open `server.js` and start the app by clicking on the "Run" button in the top menu.
+4) The appication allows for a user to check out equipment then saves the transaction to the database for the user.
 
-2) Alternatively you can launch the app from the Terminal:
+5) The user is able to update the check-out or delete the checkout when turning the eapuiment back in.
 
-    $ node server.js
-
-Once the server is running, open the project in the shape of 'https://projectname-username.c9.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.
+6) Although a user is capable of seeing the complete list of check outs from all users, the current user only has permission to update their own.
