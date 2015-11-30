@@ -1,6 +1,8 @@
 var users = require('../../app/controllers/users.server.controller'),
     loaners = require('../../app/controllers/loaners.server.controller');
 
+//HTTP and REST service endpoints for loaners.
+
 module.exports = function(app) {
     app.route('/api/loaners')
         .get(loaners.list)

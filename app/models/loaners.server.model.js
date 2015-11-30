@@ -1,6 +1,8 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+//This establishes the schema for the Loaners model
+
 var LoanerSchema = new Schema({
     created: {
         type: Date,
@@ -10,6 +12,7 @@ var LoanerSchema = new Schema({
         type: String,
         default: '',
         trim: true,
+        //Makes sure there is a value
         required: 'Model cannot be blank'
     },
     modelType: {

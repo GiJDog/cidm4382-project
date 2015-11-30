@@ -9,10 +9,10 @@ var mongoose = require('./config/mongoose'),
   express = require('./config/express'),
   passport = require('./config/passport');
 
-// Create a new Mongoose connection instance
+// Establishes a new connection to Mongoose
 var db = mongoose();
 
-// Create a new Express application instance
+// Creates a new Express instance for the application
 var app = express();
 
 // Configure the Passport middleware

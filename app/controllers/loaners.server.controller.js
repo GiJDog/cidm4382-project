@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     Loaner = mongoose.model('Loaner');
 
-// ERROR HANDLING
+// This will check for errors
 var getErrorMessage = function(err) {
     if (err.errors) {
         for (var errName in err.errors) {
@@ -13,7 +13,7 @@ var getErrorMessage = function(err) {
     }
 };
 
-// CHECK AUTHORIZATION
+// This checks for authorization
 exports.hasAuthorization = function(req, res, next) {
     if (req.loaner.creator.id !== req.user.id) {
         return res.status(403).send({
@@ -23,7 +23,7 @@ exports.hasAuthorization = function(req, res, next) {
     next();
 };
 
-// CREATE
+// Create for express
 exports.create = function(req, res) {
     var loaner = new Loaner(req.body);
 
@@ -42,7 +42,7 @@ exports.create = function(req, res) {
     });
 };
 
-//LIST/READ
+//List and read for express
 exports.list = function(req, res) {
     Loaner.find().sort('-created').populate('creator', 'firstName   lastName fullName').exec(function(err, loaners) {
         if (err) {
@@ -56,7 +56,7 @@ exports.list = function(req, res) {
     });
 };
 
-//FIND BY ID
+//This will find and entry based on ID
 exports.loanerByID = function(req, res, next, id) {
     Loaner.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, loaner) {
         if (err) return next(err);
@@ -67,12 +67,12 @@ exports.loanerByID = function(req, res, next, id) {
     });
 };
 
-//READ
+//This function reads the loaner
 exports.read = function(req, res) {
     res.json(req.loaner);
 };
 
-//UPDATE
+//This function will update the loaner.
 exports.update = function(req, res) {
     var loaner = req.loaner;
 
@@ -93,7 +93,7 @@ exports.update = function(req, res) {
     });
 };
 
-//DELETE
+//This will delete the loaner.
 exports.delete = function(req, res) {
     var loaner = req.loaner;
 

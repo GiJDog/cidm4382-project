@@ -60,28 +60,6 @@ AdminSchema.virtual('fullName').get(function() {
 	this.lastName = splitName[1] || '';
 });
 
-// Use a pre-save middleware to hash the adminpassword
-/*AdminSchema.pre('save', function(next) {
-	if (this.adminpassword) {
-		this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
-		this.adminpassword = this.hashPassword(this.adminpassword);
-	}
-
-	next();
-});
-
-// Create an instance method for hashing a adminpassword
-AdminSchema.methods.hashPassword = function(adminpassword) {
-	return crypto.pbkdf2Sync(adminpassword, this.salt, 10000, 64).toString('base64');
-};
-
-// Create an instance method for authenticating admin
-AdminSchema.methods.authenticate = function(adminpassword) {
-	return this.adminpassword === this.hashPassword(adminpassword);
-};
-*/
-
-// Find possible not used adminname
 AdminSchema.statics.findUniqueAdminname = function(adminname, suffix, callback) {
 	var _this = this;
 
