@@ -1,21 +1,38 @@
 <section data-ng-controller="LoanersController" data-ng-init="findOne()">
-  <div class="text-center">
-  <a href="/#!/" class="btn btn-primary btn-lg" role="button">Home</a>
-  <a href="/#!/loaners" class="btn btn-primary btn-lg" role="button">Back</a>
-  <h1 data-ng-bind="loaner.model"></h1>
-  <p data-ng-bind="loaner.modelType"></p>
-  <small>
-    <em>Issued on</em>
-    <em data-ng-bind="loaner.created | date:'mediumDate'"></em>
-    <em>to</em>
-    <em data-ng-bind="loaner.creator.fullName"></em>
-    <em>at</em>
-    <em data-ng-bind="loaner.created | date:'shortTime'"></em>
-  </small>
-  <br><br>
-  <div data-ng-show="authentication.user._id == loaner.creator._id">
-    <a href="/#!/loaners/{{loaner._id}}/edit" class="btn btn-primary btn-lg" role="button">Edit</a>
-    <a href="#" data-ng-click="delete();" class="btn btn-danger btn-lg" role="button">Delete</a>
+  <div class="text-center" style="color:#0059b3">
+    
+    <br><br>
+    
+    <div id="loginModal2" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  		<div class="modal-dialog">
+		  <div class="modal-content">
+      		<div class="modal-header ">
+      		  <a href="/#!/" class="btn btn-primary btn-lg" role="button">Home</a>
+            <a href="/#!/loaners" class="btn btn-primary btn-lg" role="button">Back</a>
+    		  </div>
+      		<div class="modal-body">
+            <h1 data-ng-bind="loaner.model"></h1>
+            <h3 data-ng-bind="loaner.modelType"></h3>
+            <medium>
+              <em>Issued on</em>
+              <em data-ng-bind="loaner.created | date:'mediumDate'"></em>
+              <em>to</em>
+              <em data-ng-bind="loaner.creator.fullName"></em>
+              <em>at</em>
+              <em data-ng-bind="loaner.created | date:'shortTime'"></em>
+            </medium>
+            <br><br>
+          </div>
+        <div class="modal-footer">
+			     <div class="col-md-12">
+			     	<div class="text-center" data-ng-show="authentication.user._id == loaner.creator._id">
+              <a href="/#!/loaners/{{loaner._id}}/edit" class="btn btn-primary btn-lg" role="button">Edit</a>
+              <a href="#" data-ng-click="delete();" class="btn btn-danger btn-lg" role="button">Delete</a>
+            </div>  
+					</div>	
+		     </div>
+    	</div>
+  	</div>
   </div>
   <br>
   </div>
