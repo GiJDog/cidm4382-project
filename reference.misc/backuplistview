@@ -1,0 +1,25 @@
+<section data-ng-controller="LoanersController" data-ng-init="find()">
+  <div class="text-center">
+  <a href="/#!/" class="btn btn-primary btn-lg" role="button">Home</a>
+  <a href="/#!/loaners/create" class="btn btn-primary btn-lg" role="button">Check-Out Item</a>
+  <h1>Issued Equipment</h1>
+  <br>
+
+    <div data-ng-repeat="loaner in loaners">
+      <a data-ng-href="#!/loaners/{{loaner._id}}" data-ng-bind="loaner.model" class="bg-info"></a>
+      <small> - </small>
+      <small data-ng-bind="loaner.modelType"></small>
+      <br>
+      <medium>Issued to </medium>
+      <small data-ng-bind="loaner.creator.fullName"></small>
+      <small> on </small>
+      <small data-ng-bind="loaner.created | date:'medium'"></small>
+      <br><br><br>
+    </div>
+  
+ <div data-ng-hide="!loaners || loaners.length">
+    <medium>No items checked-out.</medium><br> <a href="/#!/loaners/create" class="btn btn-primary btn-lg" role="button">Check-Out Item Here</a>
+  </div>
+  
+  </div>
+</section>
