@@ -12,7 +12,7 @@ angular.module('loaners').controller('LoanersController', ['$scope', '$routePara
         	// Use the form fields to create a new loaner $resource object
             var loaner = new Loaners({
                 model: this.model,
-                modelType: this.modelType
+                serialNumber: this.serialNumber
             });
 
             // Use the loaner '$save' method to send an appropriate POST request

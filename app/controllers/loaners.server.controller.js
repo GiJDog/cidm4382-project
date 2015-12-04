@@ -76,9 +76,9 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
     var loaner = req.loaner;
 
-    //makeupdates to model and modelType
+    //makeupdates to model and serialNumber
     loaner.model = req.body.model;
-    loaner.modelType = req.body.modelType;
+    loaner.serialNumber = req.body.serialNumber;
 
     //call save on the Mongoose model
     loaner.save(function(err) {

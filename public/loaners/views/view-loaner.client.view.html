@@ -12,7 +12,10 @@
     		  </div>
       		<div class="modal-body">
             <h1 data-ng-bind="loaner.model"></h1>
-            <h3 data-ng-bind="loaner.modelType"></h3>
+            <h4>
+            <em>S/N:</em>
+            <em data-ng-bind="loaner.serialNumber"></em>
+            </h4>
             <medium>
               <em>Issued on</em>
               <em data-ng-bind="loaner.created | date:'mediumDate'"></em>

@@ -15,7 +15,7 @@ var LoanerSchema = new Schema({
         //Makes sure there is a value
         required: 'Model cannot be blank'
     },
-    modelType: {
+    serialNumber: {
         type: String,
         default: '',
         trim: true
