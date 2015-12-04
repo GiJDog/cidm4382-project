@@ -1,1 +1,0 @@
-curl -X POST -H "Content-Type: application/json" -d '{"created":"Dec 6, 2015", "model":"MacBook Pro 15","modelType":"laptop","creator":"John Henderson"}' localhost:8080/api/loaners
